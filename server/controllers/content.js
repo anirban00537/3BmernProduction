@@ -28,7 +28,7 @@ export const createTagContent = async (req, res) => {
 export const updateTagContent = async (req, res) => {
   //   const { tagId } = req.params;
   const post = req.body;
-
+  console.log("updating taggggggggggggggggggggg");
   const postMessages = await TaglineModel.findOneAndUpdate(
     { tagId: 1234 },
     post,
@@ -36,6 +36,6 @@ export const updateTagContent = async (req, res) => {
       new: true,
     }
   );
-  console.log("done");
+  console.log("updating taggggggggggggggggggggg");
   res.json(postMessages);
 };

@@ -55,7 +55,12 @@ const DetailAdmin = () => {
       <div class="collapse preview" id="collapseDetails">
         <Details />
       </div>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        noValidate
+        method="patch"
+        onSubmit={handleSubmit}
+      >
         <div class="container">
           <div className="custom-file">
             <FileBase

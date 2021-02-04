@@ -41,7 +41,12 @@ const TeamAdmin = () => {
       <div class="collapse preview" id="collapseExample">
         <About />
       </div>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        noValidate
+        method="patch"
+        onSubmit={handleSubmit}
+      >
         <div>
           <div className="custom-file">
             <FileBase

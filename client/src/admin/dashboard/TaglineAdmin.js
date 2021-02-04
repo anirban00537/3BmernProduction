@@ -1,6 +1,7 @@
 import React from "react";
 import Tagline from "../../TagLine/Tagline";
 import FileBase from "react-file-base64";
+import M from "materialize-css";
 import { useState, useEffect } from "react";
 
 import { fetchTagline, updatePost } from "../../Api/index";
@@ -31,8 +32,15 @@ const TaglineAdmin = () => {
     onload();
   }, []);
 
-  const handleSubmit = (e) => {
-    updatePost(taglineData);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const { data } = await updatePost(taglineData);
+    if (data) {
+      M.toast({
+        html: "successfull",
+        classes: "#43a047 green darken-1",
+      });
+    }
   };
   console.log(taglineData);
   return (
@@ -53,7 +61,12 @@ const TaglineAdmin = () => {
         <Tagline />
       </div>
 
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        noValidate
+        method="patch"
+        onSubmit={handleSubmit}
+      >
         <div className="custom-file">
           <FileBase
             type="file"

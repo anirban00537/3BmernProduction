@@ -35,7 +35,12 @@ const ContactAdmin = () => {
   return (
     <div className="tagline-part container">
       <h3>Contact</h3>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        noValidate
+        method="patch"
+        onSubmit={handleSubmit}
+      >
         <div className="input-group mb-3">
           <input
             type="text"

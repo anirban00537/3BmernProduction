@@ -70,6 +70,7 @@ const PortfolioAdmin = () => {
                   <form>
                     <button
                       type="submit"
+                      method="delete"
                       class="btn btn-danger btn-sm"
                       onClick={() => {
                         deletePortfolio(s._id);
@@ -101,7 +102,12 @@ const PortfolioAdmin = () => {
       <div class="container container_bottom">
         <h2>Set Your Projects Here</h2>
 
-        <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+        <form
+          autoComplete="off"
+          noValidate
+          method="post"
+          onSubmit={handleSubmit}
+        >
           <div class="col-sm card port_margin">
             <img src={portfolioData.photo} class="img-responsive" />
             <div class="col-sm pro">

@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { fetchContact, createContact } from "../Api/index";
+import { useHistory } from "react-router-dom";
 const Footer = () => {
   const [contactData, setContactData] = useState({
     contactId: 1234,
@@ -10,6 +11,7 @@ const Footer = () => {
     copyright: "",
     brainbox: "",
   });
+  const history = useHistory();
   const onload = async () => {
     const { data } = await fetchContact();
 
@@ -107,9 +109,15 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <p className="p-small">
-                <a href="https://brainboxbd.com">{contactData.copyright}</a>
+              <p
+                className="p-small"
+                onDoubleClick={() => {
+                  history.push("/admin");
+                }}
+              >
+                {contactData.copyright}
               </p>
+              <button className="p-small btn">never</button>
             </div>{" "}
             {/* end of col */}
           </div>{" "}

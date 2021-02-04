@@ -47,7 +47,12 @@ const StageAdmin = () => {
       <div class="collapse preview" id="collapseStage">
         <Stage />
       </div>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        method="patch"
+        noValidate
+        onSubmit={handleSubmit}
+      >
         <div class="container">
           <div class="row">
             <div class="col-sm">

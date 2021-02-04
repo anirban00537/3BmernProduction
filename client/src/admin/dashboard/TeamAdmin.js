@@ -45,6 +45,7 @@ const TeamAdmin = () => {
                   <form>
                     <button
                       type="submit"
+                      method="delete"
                       class="btn btn-danger btn-sm"
                       onClick={() => {
                         deleteTeam(s._id);

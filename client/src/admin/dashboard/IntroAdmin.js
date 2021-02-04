@@ -53,7 +53,12 @@ const IntroAdmin = () => {
       <div class="collapse preview" id="collapseintro">
         <Intro />
       </div>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form
+        autoComplete="off"
+        method="patch"
+        noValidate
+        onSubmit={handleSubmit}
+      >
         <div className="custom-file">
           <FileBase
             type="file"

@@ -43,7 +43,7 @@ const ServiceAdmin = () => {
                 <div class="col-sm" key={s._id}>
                   <p>{s.title}</p>
 
-                  <form>
+                  <form method="delete">
                     <button
                       type="submit"
                       class="btn btn-danger btn-sm"
@@ -64,7 +64,7 @@ const ServiceAdmin = () => {
           )}
         </div>
       </div>
-      <form autoComplete="off" noValidate onSubmit={handleSubmit}>
+      <form autoComplete="off" method="post" noValidate onSubmit={handleSubmit}>
         <div>
           <div className="custom-file">
             <FileBase

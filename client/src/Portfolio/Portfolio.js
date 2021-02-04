@@ -7,6 +7,12 @@ const Portfolio = () => {
 
   const [Portfol, setPortfol] = useState([]);
 
+  // function checkuser() {
+  //   const token = localStorage.getItem("jwtauth");
+  //   if (!token) {
+  //     history.push("/login");
+  //   }
+  // }
   const onload = async () => {
     const { data } = await fetchPortfolio();
     setPortfol(data);
@@ -17,7 +23,7 @@ const Portfolio = () => {
     if (boole.data) {
       setLoad(1);
     }
-
+    // checkuser();
     onload();
   }, []);
 
