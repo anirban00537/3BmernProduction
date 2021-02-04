@@ -25,7 +25,7 @@ const About = () => {
   };
   useEffect(() => {
     onload();
-  }, [about]);
+  }, []);
   return (
     <div>
       <div id="about" className="counter">

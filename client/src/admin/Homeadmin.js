@@ -27,7 +27,7 @@ const Homeadmin = () => {
     if (boole.data[0].title) {
       setLoad(1);
     }
-  });
+  }, []);
 
   return load === 0 ? (
     <Loader />
