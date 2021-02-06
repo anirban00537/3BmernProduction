@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import Typical from "react-typical";
 
 import { fetchIntro, createIntro } from "../Api/index";
+import Bounce from "react-reveal/Bounce";
+
 const Intro = () => {
   const [introData, setIntroData] = useState({
     title: "",
@@ -13,7 +15,6 @@ const Intro = () => {
 
   const onload = async () => {
     const { data } = await fetchIntro();
-    console.log(data, "dataaaaa");
 
     if (data.length === 0) {
       createIntro(introData);
@@ -33,43 +34,45 @@ const Intro = () => {
   }, []);
   return (
     <div>
-      <div id="intro" className="basic-1">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-5">
-              <div className="text-container">
-                <div className="section-title">INTRO</div>
-                <h2>{introData.title}</h2>
+      <Bounce>
+        <div id="intro" className="basic-1">
+          <div className="container">
+            <div className="row">
+              <div className="col-lg-5">
+                <div className="text-container">
+                  <div className="section-title">INTRO</div>
+                  <h2>{introData.title}</h2>
 
-                <p className="testimonial-text">{introData.description}</p>
-                <div className="testimonial-author">
-                  <Typical
-                    steps={[
-                      introData.personName,
-                      2000,
-                      introData.personName,
-                      2000,
-                    ]}
-                    loop={Infinity}
-                    wrapper="div"
-                  />
-                </div>
+                  <p className="testimonial-text">{introData.description}</p>
+                  <div className="testimonial-author">
+                    <Typical
+                      steps={[
+                        introData.personName,
+                        2000,
+                        introData.personName,
+                        2000,
+                      ]}
+                      loop={Infinity}
+                      wrapper="div"
+                    />
+                  </div>
+                </div>{" "}
+                {/* end of text-container */}
               </div>{" "}
-              {/* end of text-container */}
-            </div>{" "}
-            {/* end of col */}
-            <div className="col-lg-7">
-              <div className="image-container">
-                <img
-                  className="img-fluid"
-                  src={introData.image}
-                  alt="alternative"
-                />
+              {/* end of col */}
+              <div className="col-lg-7">
+                <div className="image-container">
+                  <img
+                    className="img-fluid"
+                    src={introData.image}
+                    alt="alternative"
+                  />
+                </div>{" "}
               </div>{" "}
             </div>{" "}
           </div>{" "}
         </div>{" "}
-      </div>{" "}
+      </Bounce>
     </div>
   );
 };

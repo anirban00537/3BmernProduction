@@ -2,9 +2,14 @@ import React from "react";
 import Details from "../../Details/Details";
 import FileBase from "react-file-base64";
 import { updateDetailsPost, fetchDetails } from "../../Api/index";
+import { useHistory } from "react-router-dom";
+
 import { useState, useEffect } from "react";
+import toast from "react-simple-toasts";
 
 const DetailAdmin = () => {
+  const history = useHistory();
+
   const [detailsData, setDetailsData] = useState({
     detailsId: 1234,
     title1: "",
@@ -18,7 +23,6 @@ const DetailAdmin = () => {
 
   const onload = async () => {
     const { data } = await fetchDetails();
-    console.log(data, "Details ");
 
     const { detailsId, title1, title2, title3, des1, des2, des3 } = data[0];
     setDetailsData({
@@ -35,7 +39,13 @@ const DetailAdmin = () => {
     onload();
   }, []);
   const handleSubmit = (e) => {
-    updateDetailsPost(detailsData);
+    e.preventDefault();
+    toast("working on it");
+    updateDetailsPost(detailsData).then(() => {
+      history.push("/");
+      history.push("/admin");
+      return toast("Successfully Saved");
+    });
   };
 
   return (

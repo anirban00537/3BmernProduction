@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import toast from "react-simple-toasts";
+
 import {
   fetchContact,
   createContact,
@@ -41,8 +43,17 @@ const Contact = () => {
     onload();
   }, []);
 
-  const handleSubmit = () => {
-    createCustomerContact(cc);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    createCustomerContact(cc).then(() => {
+      setCC({
+        name: "",
+        email: "",
+        message: "",
+      });
+      return toast("Successfully Sunmitted");
+    });
   };
 
   return (

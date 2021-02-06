@@ -4,9 +4,16 @@ import { Link } from "react-scroll";
 function Navbar() {
   return (
     <nav className="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
-      <a className="navbar-brand nav-navlogo logo-image " href="index.html">
+      <Link
+        activeClass="active"
+        to="header"
+        spy={true}
+        smooth={true}
+        offset={-70}
+        duration={500}
+      >
         <img src="assets/images/logo.png" className="" alt="alternative" />
-      </a>
+      </Link>
       <button
         class="navbar-toggler"
         type="button"
@@ -22,7 +29,7 @@ function Navbar() {
       <div className="collapse navbar-collapse" id="navbarsExampleDefault">
         <ul className="navbar-nav ml-auto">
           <li className="nav-item">
-            <a className="nav-link page-scroll" href="#header">
+            <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
                 to="header"
@@ -36,7 +43,7 @@ function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link page-scroll" href="#intro">
+            <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
                 to="intro"
@@ -50,7 +57,7 @@ function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link page-scroll" href="#services">
+            <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
                 to="services"
@@ -64,7 +71,7 @@ function Navbar() {
             </a>
           </li>
           <li className="nav-item">
-            <a className="nav-link page-scroll" href="#projects">
+            <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
                 to="projects"
@@ -79,7 +86,7 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <a className="nav-link page-scroll" href="#about">
+            <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
                 to="about"
@@ -94,7 +101,7 @@ function Navbar() {
           </li>
 
           <li className="nav-item">
-            <a className="nav-link page-scroll" href="#contact">
+            <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
                 to="contact"

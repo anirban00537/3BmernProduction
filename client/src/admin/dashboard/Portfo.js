@@ -15,12 +15,8 @@ const Portfo = () => {
 
     axios
       .post("http://localhost:5000/portfolio", formData)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+      .then((res) => {})
+      .catch((err) => {});
   };
   const handleChange = (e) => {
     setNewAuthor({ ...newUser, name: e.target.value });
@@ -28,7 +24,6 @@ const Portfo = () => {
 
   const handlePhoto = (e) => {
     setNewAuthor({ ...newUser, photo: e.target.files[0] });
-    console.log(newUser.photo);
   };
   return (
     <form onSubmit={handleSubmit} encType="multipart/form-data">

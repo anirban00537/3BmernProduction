@@ -1,9 +1,13 @@
 import React, { useState, useEffect } from "react";
 import FileBase from "react-file-base64";
 import { createTeam, deleteTeam, fetchTeam } from "../../Api/index";
+import toast from "react-simple-toasts";
+import { useHistory } from "react-router-dom";
 
 const TeamAdmin = () => {
   let [team, setTeam] = useState([]);
+  const history = useHistory();
+
   const [postData, setPostData] = useState({
     name: "",
     position: "",
@@ -12,13 +16,18 @@ const TeamAdmin = () => {
   const onload = async () => {
     const { data } = await fetchTeam();
     setTeam(data);
-    console.log(team.length, "Team");
   };
   useEffect(() => {
     onload();
   }, []);
   const handleSubmit = (e) => {
-    createTeam(postData);
+    e.preventDefault();
+    toast("working on it");
+    createTeam(postData).then(() => {
+      history.push("/");
+      history.push("/admin");
+      return toast("Successfully Saved");
+    });
   };
   return (
     <div className="tagline-part container ">
@@ -47,8 +56,13 @@ const TeamAdmin = () => {
                       type="submit"
                       method="delete"
                       class="btn btn-danger btn-sm"
-                      onClick={() => {
-                        deleteTeam(s._id);
+                      onClick={(e) => {
+                        e.preventDefault();
+                        toast("working on it");
+                        deleteTeam(s._id).then(() => {
+                          toast("Deleted");
+                          history.push("/");
+                        });
                       }}
                     >
                       Delete

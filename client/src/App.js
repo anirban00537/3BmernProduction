@@ -20,7 +20,7 @@ import { useState, useEffect } from "react";
 import "./App.css";
 import Loader from "./Loader";
 import PortfolioAdmin from "./admin/dashboard/PortfolioAdmin";
-
+import Fade from "react-reveal/Fade";
 function Home() {
   const [load, setLoad] = useState(0);
 
@@ -41,11 +41,13 @@ function Home() {
       <Zoom>
         <Stage />
       </Zoom>
-      <Zoom>
-        <Service />
-      </Zoom>
+
+      <Service />
+
       <Details />
-      <Portfolio />
+      <Fade>
+        <Portfolio />
+      </Fade>
       <Team />
       <About />
       <Contact />

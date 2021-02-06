@@ -1,7 +1,8 @@
 import Stage from "../../Stage/Stage";
 import { useState, useEffect } from "react";
-
+import { useHistory } from "react-router-dom";
 import { fetchStage, updateStagePost } from "../../Api/index";
+import toast from "react-simple-toasts";
 
 const StageAdmin = () => {
   const [stageData, setStageData] = useState({
@@ -10,10 +11,10 @@ const StageAdmin = () => {
     des2: "",
     des3: "",
   });
+  const history = useHistory();
 
   const onload = async () => {
     const { data } = await fetchStage();
-    console.log(data, "stage ");
 
     const { stageId, des1, des2, des3 } = data[0];
     setStageData({
@@ -27,7 +28,14 @@ const StageAdmin = () => {
     onload();
   }, []);
   const handleSubmit = (e) => {
-    updateStagePost(stageData);
+    e.preventDefault();
+    toast("working on it");
+    updateStagePost(stageData).then(() => {
+      history.push("/");
+      history.push("/admin");
+
+      return toast("Successfully Saved");
+    });
   };
   return (
     <div className="tagline-part container">

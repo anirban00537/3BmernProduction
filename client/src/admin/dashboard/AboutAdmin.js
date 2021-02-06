@@ -2,8 +2,13 @@ import React, { useState, useEffect } from "react";
 import FileBase from "react-file-base64";
 import About from "../../About/About";
 import { updateAboutPost, fetchAbout } from "../../Api/index";
+import { useHistory } from "react-router-dom";
+
+import toast from "react-simple-toasts";
 
 const TeamAdmin = () => {
+  const history = useHistory();
+
   const [about, setAbout] = useState({
     title: "",
     description: "",
@@ -22,7 +27,13 @@ const TeamAdmin = () => {
     onload();
   }, []);
   const handleSubmit = (e) => {
-    updateAboutPost(about);
+    e.preventDefault();
+    toast("working on it");
+    updateAboutPost(about).then(() => {
+      history.push("/");
+      history.push("/admin");
+      return toast("Successfully Saved");
+    });
   };
   return (
     <div className="tagline-part container ">

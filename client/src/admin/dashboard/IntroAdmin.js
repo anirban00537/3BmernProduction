@@ -2,10 +2,14 @@ import React from "react";
 import Intro from "../../Intro/Intro";
 import FileBase from "react-file-base64";
 import { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 
 import { fetchIntro, updateIntroPost } from "../../Api/index";
+import toast from "react-simple-toasts";
 
 const IntroAdmin = () => {
+  const history = useHistory();
+
   const [introData, setIntroData] = useState({
     title: "",
     introId: 1234,
@@ -16,7 +20,6 @@ const IntroAdmin = () => {
 
   const onload = async () => {
     const { data } = await fetchIntro();
-    console.log(data, "dataaaaa");
 
     const { title, introId, personName, description, image } = data[0];
     setIntroData({
@@ -33,7 +36,13 @@ const IntroAdmin = () => {
   }, []);
 
   const handleSubmit = (e) => {
-    updateIntroPost(introData);
+    e.preventDefault();
+    toast("working on it");
+    updateIntroPost(introData).then(() => {
+      history.push("/");
+      history.push("/admin");
+      return toast("Successfully Saved");
+    });
   };
 
   return (

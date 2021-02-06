@@ -30,7 +30,6 @@ const Tagline = () => {
     onload();
   }, []);
 
-  console.log(taglineData.changableText);
   return (
     <div>
       <header

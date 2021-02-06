@@ -1,12 +1,15 @@
 import React from "react";
 import Tagline from "../../TagLine/Tagline";
 import FileBase from "react-file-base64";
-import M from "materialize-css";
 import { useState, useEffect } from "react";
+import toast from "react-simple-toasts";
+import { useHistory } from "react-router-dom";
 
 import { fetchTagline, updatePost } from "../../Api/index";
 
 const TaglineAdmin = () => {
+  const history = useHistory();
+
   const [taglineData, setTaglineData] = useState({
     title: "",
     tagId: 1234,
@@ -34,15 +37,14 @@ const TaglineAdmin = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const { data } = await updatePost(taglineData);
-    if (data) {
-      M.toast({
-        html: "successfull",
-        classes: "#43a047 green darken-1",
-      });
-    }
+    toast("working on it");
+    updatePost(taglineData).then(() => {
+      history.push("/");
+      history.push("/admin");
+      return toast("Successfully Saved");
+    });
   };
-  console.log(taglineData);
+
   return (
     <div className="tagline-part container">
       <p>

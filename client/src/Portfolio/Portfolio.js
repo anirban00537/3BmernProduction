@@ -50,6 +50,8 @@ const Portfolio = () => {
                       <p>{p.description}</p>
                     </div>
                   </div>
+                  <br />
+                  <br />
                 </div>
               ))}
             </div>

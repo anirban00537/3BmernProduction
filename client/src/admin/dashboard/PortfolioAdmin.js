@@ -3,6 +3,7 @@ import Navbar from "./Navbar";
 import FileBase from "react-file-base64";
 import "./dashboard.css";
 import { useHistory } from "react-router-dom";
+import toast from "react-simple-toasts";
 
 import {
   fetchPortfolio,
@@ -32,7 +33,6 @@ const PortfolioAdmin = () => {
   const onload = async () => {
     const { data } = await fetchPortfolio();
     setPortfol(data);
-    console.log(Portfol, "Portfol");
   };
   const authCheck = async () => {
     const boole = await fetchPortfolio();
@@ -46,7 +46,12 @@ const PortfolioAdmin = () => {
     onload();
   }, [load]);
   const handleSubmit = (e) => {
-    createPortfolio(portfolioData);
+    e.preventDefault();
+    toast("working on it");
+    createPortfolio(portfolioData).then(() => {
+      history.push("/");
+      return toast("Successfully Saved");
+    });
   };
   return load === 0 ? (
     <Loader />
@@ -67,18 +72,20 @@ const PortfolioAdmin = () => {
                   <p class="card-text mb-auto" key={s._id}>
                     {s.description}
                   </p>
-                  <form>
-                    <button
-                      type="submit"
-                      method="delete"
-                      class="btn btn-danger btn-sm"
-                      onClick={() => {
-                        deletePortfolio(s._id);
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </form>
+
+                  <button
+                    type="button"
+                    method="delete"
+                    class="btn btn-danger btn-sm"
+                    onClick={() => {
+                      deletePortfolio(s._id).then(() => {
+                        toast("Deleted");
+                        history.push("/");
+                      });
+                    }}
+                  >
+                    Delete
+                  </button>
                 </div>
                 <div class="col-auto d-none d-lg-block">
                   <img

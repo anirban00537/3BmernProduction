@@ -1,7 +1,11 @@
 import { useState, useEffect } from "react";
 import { fetchContact, updateContactPost } from "../../Api/index";
+import toast from "react-simple-toasts";
+import { useHistory } from "react-router-dom";
 
 const ContactAdmin = () => {
+  const history = useHistory();
+
   const [contactData, setContactData] = useState({
     contactId: 1234,
     address: "",
@@ -29,8 +33,14 @@ const ContactAdmin = () => {
   useEffect(() => {
     onload();
   }, []);
-  const handleSubmit = async () => {
-    updateContactPost(contactData);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    toast("working on it");
+    updateContactPost(contactData).then(() => {
+      history.push("/");
+      history.push("/admin");
+      return toast("Successfully Saved");
+    });
   };
   return (
     <div className="tagline-part container">

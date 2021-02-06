@@ -1,8 +1,17 @@
 import React from "react";
 import "./dashboard.css";
 import { Link } from "react-router-dom";
-
+import { useHistory } from "react-router-dom";
 const Navbar = () => {
+  const history = useHistory();
+
+  const LoggedmeOut = () => {
+    localStorage.removeItem("jwtauth");
+
+    localStorage.removeItem("users");
+    history.push("/");
+  };
+
   return (
     <div>
       <nav class="navbar navbar-expand-lg navbar-light bg-light navbar-custom-admin">
@@ -38,6 +47,9 @@ const Navbar = () => {
             <button
               class="nav-link nav_core_dashboard nv-go-cc btn  logout_btn"
               to="/customer"
+              onClick={() => {
+                LoggedmeOut();
+              }}
             >
               Logout
             </button>

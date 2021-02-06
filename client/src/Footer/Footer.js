@@ -109,15 +109,7 @@ const Footer = () => {
         <div className="container">
           <div className="row">
             <div className="col-lg-12">
-              <p
-                className="p-small"
-                onDoubleClick={() => {
-                  history.push("/admin");
-                }}
-              >
-                {contactData.copyright}
-              </p>
-              <button className="p-small btn">never</button>
+              <p className="p-small">{contactData.copyright}</p>
             </div>{" "}
             {/* end of col */}
           </div>{" "}

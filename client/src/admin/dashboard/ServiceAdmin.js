@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import FileBase from "react-file-base64";
 import { fetchService, deleteService, createSerice } from "../../Api/index";
+import toast from "react-simple-toasts";
+import { useHistory } from "react-router-dom";
 
 const ServiceAdmin = () => {
   let [service, setService] = useState([]);
@@ -9,17 +11,21 @@ const ServiceAdmin = () => {
     description: "",
     image: "",
   });
-
+  const history = useHistory();
   const onload = async () => {
     const { data } = await fetchService();
     setService(data);
-    console.log(service, "service");
   };
   useEffect(() => {
     onload();
   }, []);
   const handleSubmit = (e) => {
-    createSerice(postData);
+    e.preventDefault();
+    toast("working on it");
+    createSerice(postData).then(() => {
+      history.push("/");
+      return toast("Successfully Saved");
+    });
   };
   return (
     <div className="tagline-part container ">
@@ -43,17 +49,18 @@ const ServiceAdmin = () => {
                 <div class="col-sm" key={s._id}>
                   <p>{s.title}</p>
 
-                  <form method="delete">
-                    <button
-                      type="submit"
-                      class="btn btn-danger btn-sm"
-                      onClick={() => {
-                        deleteService(s._id);
-                      }}
-                    >
-                      Delete
-                    </button>
-                  </form>
+                  <button
+                    type="submit"
+                    class="btn btn-danger btn-sm"
+                    onClick={() => {
+                      deleteService(s._id).then(() => {
+                        toast("Deleted");
+                        history.push("/");
+                      });
+                    }}
+                  >
+                    Delete
+                  </button>
                 </div>
               ))}
             </div>
