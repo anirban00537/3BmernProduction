@@ -75,7 +75,13 @@ const Footer = () => {
             {/* end of col */}
             <div className="col-md-2">
               <div className="text-container">
-                <h4>---</h4>
+                <h4
+                  onDoubleClick={() => {
+                    history.push("/admin");
+                  }}
+                >
+                  ---
+                </h4>
                 <ul className="list-unstyled li-space-lg white">
                   <li>
                     <a className="white" href="brainboxbd.com">

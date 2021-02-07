@@ -55,7 +55,8 @@ app.listen(PORT, () => {
 
 const __dirname = path.resolve();
 app.use(express.static(path.join(__dirname, "/client/build")));
-app.get("/", (req, res, next) => {
+app.get("/*", function (req, res) {
   res.sendFile(path.join(__dirname, "/client/build", "index.html"));
 });
+
 mongoose.set("useFindAndModify", false);
