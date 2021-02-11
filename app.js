@@ -33,7 +33,7 @@ app.use("/contact", contact);
 app.use("/customercontact", customercontact);
 app.use("/", auth);
 const CONNECTION_URL =
-  "mongodb+srv://anirban00537:anirban00537@cluster0.teg4f.mongodb.net/3bmern?retryWrites=true&w=majority";
+  "mongodb+srv://brainboxbd:brainboxbd@cluster0.7k23y.mongodb.net/3bmern?retryWrites=true&w=majority";
 
 const PORT = process.env.PORT || 5000;
 

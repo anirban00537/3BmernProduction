@@ -33,6 +33,7 @@ function Home() {
     const boole = await fetchTagline();
     if (boole.data[0].title) {
       setLoad(1);
+      console.log("logginh");
     }
   });
 
