@@ -1,6 +1,6 @@
-import ContactModel from "../models/ContactModel.js";
+const ContactModel = require("../models/ContactModel.js");
 
-export const getContactContent = async (req, res) => {
+exports.getContactContent = getContactContent = async (req, res) => {
   try {
     const Contact = await ContactModel.find({ contactId: 1234 });
 
@@ -10,7 +10,7 @@ export const getContactContent = async (req, res) => {
   }
 };
 
-export const createContactContent = async (req, res) => {
+exports.createContactContent = createContactContent = async (req, res) => {
   const Contact = req.body;
   const newContactContent = new ContactModel(Contact);
   try {
@@ -21,7 +21,7 @@ export const createContactContent = async (req, res) => {
   }
 };
 
-export const updateContactContent = async (req, res) => {
+exports.updateContactContent = updateContactContent = async (req, res) => {
   //   const { ContactId } = req.params;
   const post = req.body;
 

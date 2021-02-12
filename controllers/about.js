@@ -1,6 +1,6 @@
-import AboutsModel from "../models/AboutModel.js";
+const AboutsModel = require("../models/AboutModel.js");
 
-export const getAboutsContent = async (req, res) => {
+exports.getAboutsContent = getAboutsContent = async (req, res) => {
   try {
     const Abouts = await AboutsModel.find({ aboutId: 1234 });
 
@@ -10,7 +10,7 @@ export const getAboutsContent = async (req, res) => {
   }
 };
 
-export const createAboutsContent = async (req, res) => {
+exports.createAboutsContent = createAboutsContent = async (req, res) => {
   const Abouts = req.body;
   const newAboutsContent = new AboutsModel(Abouts);
   try {
@@ -21,7 +21,7 @@ export const createAboutsContent = async (req, res) => {
   }
 };
 
-export const updateAboutsContent = async (req, res) => {
+exports.updateAboutsContent = updateAboutsContent = async (req, res) => {
   //   const { AboutsId } = req.params;
   const post = req.body;
 

@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const PortfolioSchema = mongoose.Schema({
   portfolioId: Number,
@@ -22,4 +22,4 @@ const PortfolioSchema = mongoose.Schema({
 
 const PortfolioModel = mongoose.model("PortfolioModel", PortfolioSchema);
 
-export default PortfolioModel;
+module.exports = PortfolioModel;

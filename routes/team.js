@@ -1,15 +1,10 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createTeamContent,
-  deleteTeamPost,
-  getTeamContent,
-} from "../controllers/team.js";
+const team = require("../controllers/team.js");
 
 const router = express.Router();
 
-router.get("/", getTeamContent);
-router.post("/", createTeamContent);
-router.delete("/:id", deleteTeamPost);
-
-export default router;
+router.get("/", team.getTeamContent);
+router.post("/", team.createTeamContent);
+router.delete("/:id", team.deleteTeamPost);
+module.exports = router;

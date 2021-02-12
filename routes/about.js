@@ -1,15 +1,11 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createAboutsContent,
-  getAboutsContent,
-  updateAboutsContent,
-} from "../controllers/about.js";
+const about = require("../controllers/about.js");
 
 const router = express.Router();
 
-router.get("/", getAboutsContent);
-router.post("/", createAboutsContent);
-router.patch("/", updateAboutsContent);
+router.get("/", about.getAboutsContent);
+router.post("/", about.createAboutsContent);
+router.patch("/", about.updateAboutsContent);
 
-export default router;
+module.exports = router;

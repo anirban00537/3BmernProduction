@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const DetailsSchema = mongoose.Schema({
   detailsId: Number,
@@ -13,4 +13,4 @@ const DetailsSchema = mongoose.Schema({
 
 const DetailsModel = mongoose.model("DetailsModel", DetailsSchema);
 
-export default DetailsModel;
+module.exports = DetailsModel;

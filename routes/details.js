@@ -1,15 +1,11 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createDetailsContent,
-  getDetailsContent,
-  updateDetailsContent,
-} from "../controllers/details.js";
+const details = require("../controllers/details.js");
 
 const router = express.Router();
 
-router.get("/", getDetailsContent);
-router.post("/", createDetailsContent);
-router.patch("/", updateDetailsContent);
+router.get("/", details.getDetailsContent);
+router.post("/", details.createDetailsContent);
+router.patch("/", details.updateDetailsContent);
 
-export default router;
+module.exports = router;

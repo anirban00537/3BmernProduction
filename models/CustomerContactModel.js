@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const CustomerContactSchema = mongoose.Schema({
   name: String,
@@ -11,4 +11,4 @@ const CustomerContactModel = mongoose.model(
   CustomerContactSchema
 );
 
-export default CustomerContactModel;
+module.exports = CustomerContactModel;

@@ -1,15 +1,11 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createPortfolioContent,
-  getPortfolioContent,
-  deletePortfolioPost,
-} from "../controllers/portfolio.js";
+const into = require("../controllers/portfolio.js");
 
 const router = express.Router();
 
-router.get("/", getPortfolioContent);
-router.post("/", createPortfolioContent);
-router.delete("/:id", deletePortfolioPost);
+router.get("/", into.getPortfolioContent);
+router.post("/", into.createPortfolioContent);
+router.delete("/:id", into.deletePortfolioPost);
 
-export default router;
+module.exports = router;

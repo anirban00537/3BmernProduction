@@ -1,16 +1,11 @@
-import express from "express";
-import requireLogin from "../middleware/requireMiddleware.js";
+const express = require("express");
 
-import {
-  createIntroContent,
-  getIntroContent,
-  updateIntroContent,
-} from "../controllers/intro.js";
+const into = require("../controllers/intro.js");
 
 const router = express.Router();
 
-router.get("/", getIntroContent);
-router.post("/", createIntroContent);
-router.patch("/", updateIntroContent);
+router.get("/", into.getIntroContent);
+router.post("/", into.createIntroContent);
+router.patch("/", into.updateIntroContent);
 
-export default router;
+module.exports = router;

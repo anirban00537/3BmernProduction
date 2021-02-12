@@ -1,7 +1,7 @@
-import mongoose from "mongoose";
-import TaglineModel from "../models/TaglineModel.js";
+const mongoose = require("mongoose");
+const TaglineModel = require("../models/TaglineModel.js");
 
-export const getTagContent = async (req, res) => {
+exports.getTagContent = getTagContent = async (req, res) => {
   try {
     const tagLine = await TaglineModel.find({ tagId: 1234 });
 
@@ -11,7 +11,7 @@ export const getTagContent = async (req, res) => {
   }
 };
 
-export const createTagContent = async (req, res) => {
+exports.createTagContent = createTagContent = async (req, res) => {
   const TagLine = req.body;
   const newTagContent = new TaglineModel(TagLine);
   try {
@@ -22,7 +22,7 @@ export const createTagContent = async (req, res) => {
   }
 };
 
-export const updateTagContent = async (req, res) => {
+exports.updateTagContent = updateTagContent = async (req, res) => {
   //   const { tagId } = req.params;
   const post = req.body;
   const postMessages = await TaglineModel.findOneAndUpdate(

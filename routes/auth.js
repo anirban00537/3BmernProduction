@@ -1,13 +1,15 @@
-import express from "express";
-import bcrypt from "bcryptjs";
-import jwt from "jsonwebtoken";
-import { JWT_SECRET } from "../keys.js";
-import User from "../models/user.js";
+const express = require("express");
+const bcrypt = require("bcryptjs");
+const jwt = require("jsonwebtoken");
+// const { JWT_SECRET } = require("../keys.js");
+const User = require("../models/user.js");
 //app config
+const JWT_SECRET = "abjflhbasldfbajlhdbffvfkjasnfdkjanfdkjnsa";
+
 const router = express.Router();
 // const User = mongoose.model("User");
 //middleware
-import requireLogin from "../middleware/requireMiddleware.js";
+// const requireLogin = require("../middleware/requireMiddleware.js";
 
 //signup route
 router.post("/signup", (req, res) => {
@@ -91,4 +93,4 @@ router.post("/signin", (req, res) => {
       });
   });
 });
-export default router;
+module.exports = router;

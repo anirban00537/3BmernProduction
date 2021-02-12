@@ -1,15 +1,11 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createStageContent,
-  getStageContent,
-  updateStageContent,
-} from "../controllers/stage.js";
+const stage = require("../controllers/stage.js");
 
 const router = express.Router();
 
-router.get("/", getStageContent);
-router.post("/", createStageContent);
-router.patch("/", updateStageContent);
+router.get("/", stage.getStageContent);
+router.post("/", stage.createStageContent);
+router.patch("/", stage.updateStageContent);
 
-export default router;
+module.exports = router;

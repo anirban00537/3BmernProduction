@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const StageSchema = mongoose.Schema({
   stageId: Number,
@@ -9,4 +9,4 @@ const StageSchema = mongoose.Schema({
 
 const StageModel = mongoose.model("StageModel", StageSchema);
 
-export default StageModel;
+module.exports = StageModel;

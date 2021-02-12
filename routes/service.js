@@ -1,15 +1,11 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createServiceContent,
-  deleteServicePost,
-  getServiceContent,
-} from "../controllers/service.js";
+const service = require("../controllers/service.js");
 
 const router = express.Router();
 
-router.get("/", getServiceContent);
-router.post("/", createServiceContent);
-router.delete("/:id", deleteServicePost);
+router.get("/", service.getServiceContent);
+router.post("/", service.createServiceContent);
+router.delete("/:id", service.deleteServicePost);
 
-export default router;
+module.exports = router;

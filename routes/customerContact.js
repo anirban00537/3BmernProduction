@@ -1,11 +1,8 @@
-import express from "express";
+const express = require("express");
 
-import {
-  createCustomerContactContent,
-  getCustomerContactContent,
-} from "../controllers/customerContact.js";
+const customerContact = require("../controllers/customerContact.js");
 const router = express.Router();
-router.get("/", getCustomerContactContent);
-router.post("/", createCustomerContactContent);
+router.get("/", customerContact.getCustomerContactContent);
+router.post("/", customerContact.createCustomerContactContent);
 
-export default router;
+module.exports = router;

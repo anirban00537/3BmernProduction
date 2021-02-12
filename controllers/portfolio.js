@@ -1,6 +1,6 @@
-import PortfolioModel from "../models/PortfolioModel.js";
-import mongoose from "mongoose";
-export const getPortfolioContent = async (req, res) => {
+const PortfolioModel = require("../models/PortfolioModel.js");
+const mongoose = require("mongoose");
+exports.getPortfolioContent = getPortfolioContent = async (req, res) => {
   try {
     const Portfolio = await PortfolioModel.find();
 
@@ -10,7 +10,7 @@ export const getPortfolioContent = async (req, res) => {
   }
 };
 
-export const createPortfolioContent = async (req, res) => {
+exports.createPortfolioContent = createPortfolioContent = async (req, res) => {
   const Portfolio = req.body;
   const newPortfolioContent = new PortfolioModel(Portfolio);
   try {
@@ -20,8 +20,7 @@ export const createPortfolioContent = async (req, res) => {
     res.status(409).send(error.message);
   }
 };
-
-export const updatePortfolioContent = async (req, res) => {
+exports.updatePortfolioContent = updatePortfolioContent = async (req, res) => {
   //   const { PortfolioId } = req.params;
   const post = req.body;
 
@@ -35,7 +34,7 @@ export const updatePortfolioContent = async (req, res) => {
   res.json(postMessages);
 };
 
-export const deletePortfolioPost = async (req, res) => {
+exports.deletePortfolioPost = deletePortfolioPost = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");

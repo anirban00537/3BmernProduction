@@ -1,6 +1,9 @@
-import CustomerContactModel from "../models/CustomerContactModel.js";
+const CustomerContactModel = require("../models/CustomerContactModel.js");
 
-export const getCustomerContactContent = async (req, res) => {
+exports.getCustomerContactContent = getCustomerContactContent = async (
+  req,
+  res
+) => {
   try {
     const CustomerContact = await CustomerContactModel.find();
 
@@ -10,7 +13,10 @@ export const getCustomerContactContent = async (req, res) => {
   }
 };
 
-export const createCustomerContactContent = async (req, res) => {
+exports.createCustomerContactContent = createCustomerContactContent = async (
+  req,
+  res
+) => {
   const CustomerContact = req.body;
   const newCustomerContactContent = new CustomerContactModel(CustomerContact);
   try {

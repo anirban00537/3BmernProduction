@@ -1,6 +1,6 @@
-import ServiceModel from "../models/ServiceModel.js";
-import mongoose from "mongoose";
-export const getServiceContent = async (req, res) => {
+const ServiceModel = require("../models/ServiceModel.js");
+const mongoose = require("mongoose");
+exports.getServiceContent = getServiceContent = async (req, res) => {
   try {
     const Service = await ServiceModel.find();
 
@@ -9,8 +9,7 @@ export const getServiceContent = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
-
-export const createServiceContent = async (req, res) => {
+exports.createServiceContent = createServiceContent = async (req, res) => {
   const Service = req.body;
   const newServiceContent = new ServiceModel(Service);
   try {
@@ -21,7 +20,7 @@ export const createServiceContent = async (req, res) => {
   }
 };
 
-export const deleteServicePost = async (req, res) => {
+exports.deleteServicePost = deleteServicePost = async (req, res) => {
   const { id } = req.params;
   if (!mongoose.Types.ObjectId.isValid(id))
     return res.status(404).send("No post with that id");

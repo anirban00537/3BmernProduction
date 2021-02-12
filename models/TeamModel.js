@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const TeamSchema = mongoose.Schema({
   name: String,
@@ -8,4 +8,4 @@ const TeamSchema = mongoose.Schema({
 
 const TeamModel = mongoose.model("TeamModel", TeamSchema);
 
-export default TeamModel;
+module.exports = TeamModel;

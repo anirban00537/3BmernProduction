@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const ContactSchema = mongoose.Schema({
   contactId: Number,
@@ -12,4 +12,4 @@ const ContactSchema = mongoose.Schema({
 
 const ContactModel = mongoose.model("ContactModel", ContactSchema);
 
-export default ContactModel;
+module.exports = ContactModel;

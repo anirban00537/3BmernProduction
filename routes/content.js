@@ -1,16 +1,11 @@
-import express from "express";
-import requireLogin from "../middleware/requireMiddleware.js";
+const express = require("express");
 
-import {
-  getTagContent,
-  createTagContent,
-  updateTagContent,
-} from "../controllers/content.js";
+const content = require("../controllers/content.js");
 
 const router = express.Router();
 
-router.get("/", getTagContent);
-router.post("/", createTagContent);
-router.patch("/", updateTagContent);
+router.get("/", content.getTagContent);
+router.post("/", content.createTagContent);
+router.patch("/", content.updateTagContent);
 
-export default router;
+module.exports = router;

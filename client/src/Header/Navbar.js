@@ -1,9 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-scroll";
 
 function Navbar() {
+  const [navbar, setNavbar] = useState(false);
+
+  const changeNavbar = () => {
+    if (window.scrollY >= 230) {
+      setNavbar(true);
+    } else {
+      setNavbar(false);
+    }
+  };
+  window.addEventListener("scroll", changeNavbar);
   return (
-    <nav className="navbar navbar-expand-md navbar-dark navbar-custom fixed-top">
+    <nav
+      className={
+        navbar
+          ? "navbar navbar-expand-md navbar-custom active  fixed-top"
+          : "navbar navbar-expand-md navbar-custom  fixed-top"
+      }
+    >
       <Link
         activeClass="active"
         to="header"
@@ -12,7 +28,11 @@ function Navbar() {
         offset={-70}
         duration={500}
       >
-        <img src="assets/images/logo.png" className="" alt="alternative" />
+        <img
+          src="assets/images/logo.png"
+          className="logoimg"
+          alt="alternative"
+        />
       </Link>
       <button
         class="navbar-toggler"
@@ -32,6 +52,7 @@ function Navbar() {
             <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
+                className={navbar ? "padLink" : "padLinknone"}
                 to="header"
                 spy={true}
                 smooth={true}
@@ -46,6 +67,7 @@ function Navbar() {
             <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
+                className={navbar ? "padLink" : "padLinknone"}
                 to="intro"
                 spy={true}
                 smooth={true}
@@ -60,6 +82,7 @@ function Navbar() {
             <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
+                className={navbar ? "padLink" : "padLinknone"}
                 to="services"
                 spy={true}
                 smooth={true}
@@ -74,6 +97,7 @@ function Navbar() {
             <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
+                className={navbar ? "padLink" : "padLinknone"}
                 to="projects"
                 spy={true}
                 smooth={true}
@@ -89,6 +113,7 @@ function Navbar() {
             <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
+                className={navbar ? "padLink" : "padLinknone"}
                 to="about"
                 spy={true}
                 smooth={true}
@@ -104,6 +129,7 @@ function Navbar() {
             <a className="nav-link page-scroll" href="">
               <Link
                 activeClass="active"
+                className={navbar ? "padLink" : "padLinknone conmar"}
                 to="contact"
                 spy={true}
                 smooth={true}

@@ -1,6 +1,6 @@
-import DetailsModel from "../models/DetailsModel.js";
+const DetailsModel = require("../models/DetailsModel.js");
 
-export const getDetailsContent = async (req, res) => {
+exports.getDetailsContent = getDetailsContent = async (req, res) => {
   try {
     const Details = await DetailsModel.find({ detailsId: 1234 });
 
@@ -10,7 +10,7 @@ export const getDetailsContent = async (req, res) => {
   }
 };
 
-export const createDetailsContent = async (req, res) => {
+exports.createDetailsContent = createDetailsContent = async (req, res) => {
   const Details = req.body;
   const newDetailsContent = new DetailsModel(Details);
   try {
@@ -21,7 +21,7 @@ export const createDetailsContent = async (req, res) => {
   }
 };
 
-export const updateDetailsContent = async (req, res) => {
+exports.updateDetailsContent = updateDetailsContent = async (req, res) => {
   //   const { DetailsId } = req.params;
   const post = req.body;
 

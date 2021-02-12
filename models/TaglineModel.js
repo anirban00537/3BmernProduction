@@ -1,4 +1,4 @@
-import mongoose from "mongoose";
+const mongoose = require("mongoose");
 
 const TaglineSchema = mongoose.Schema({
   title: String,
@@ -10,4 +10,4 @@ const TaglineSchema = mongoose.Schema({
 
 const TaglineModel = mongoose.model("TaglineModel", TaglineSchema);
 
-export default TaglineModel;
+module.exports = TaglineModel;

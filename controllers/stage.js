@@ -1,6 +1,6 @@
-import StageModel from "../models/StageModel.js";
+const StageModel = require("../models/StageModel.js");
 
-export const getStageContent = async (req, res) => {
+exports.getStageContent = getStageContent = async (req, res) => {
   try {
     const Stage = await StageModel.find({ stageId: 1234 });
 
@@ -9,8 +9,7 @@ export const getStageContent = async (req, res) => {
     res.status(404).json({ message: error.message });
   }
 };
-
-export const createStageContent = async (req, res) => {
+exports.createStageContent = createStageContent = async (req, res) => {
   const Stage = req.body;
   const newStageContent = new StageModel(Stage);
   try {
@@ -21,7 +20,7 @@ export const createStageContent = async (req, res) => {
   }
 };
 
-export const updateStageContent = async (req, res) => {
+exports.updateStageContent = updateStageContent = async (req, res) => {
   //   const { StageId } = req.params;
   const post = req.body;
 

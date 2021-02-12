@@ -1,5 +1,5 @@
-import TeamModel from "../models/TeamModel.js";
-export const getTeamContent = async (req, res) => {
+const TeamModel = require("../models/TeamModel.js");
+exports.getTeamContent = getTeamContent = async (req, res) => {
   try {
     const Team = await TeamModel.find();
 
@@ -9,7 +9,7 @@ export const getTeamContent = async (req, res) => {
   }
 };
 
-export const createTeamContent = async (req, res) => {
+exports.createTeamContent = createTeamContent = async (req, res) => {
   const Team = req.body;
   const newTeamContent = new TeamModel(Team);
   try {
@@ -20,7 +20,7 @@ export const createTeamContent = async (req, res) => {
   }
 };
 
-export const deleteTeamPost = async (req, res) => {
+exports.deleteTeamPost = deleteTeamPost = async (req, res) => {
   const { id } = req.params;
 
   await TeamModel.findByIdAndRemove(id);

@@ -1,6 +1,6 @@
-import IntroModel from "../models/IntroModel.js";
+const IntroModel = require("../models/IntroModel.js");
 
-export const getIntroContent = async (req, res) => {
+exports.getIntroContent = getIntroContent = async (req, res) => {
   try {
     const Intro = await IntroModel.find({ introId: 1234 });
 
@@ -10,7 +10,7 @@ export const getIntroContent = async (req, res) => {
   }
 };
 
-export const createIntroContent = async (req, res) => {
+exports.createIntroContent = createIntroContent = async (req, res) => {
   const Intro = req.body;
   const newIntroContent = new IntroModel(Intro);
   try {
@@ -21,7 +21,7 @@ export const createIntroContent = async (req, res) => {
   }
 };
 
-export const updateIntroContent = async (req, res) => {
+exports.updateIntroContent = updateIntroContent = async (req, res) => {
   //   const { IntroId } = req.params;
   const post = req.body;
 
